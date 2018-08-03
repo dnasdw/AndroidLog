@@ -15,6 +15,8 @@ public class log {
 
 	public static int index = 0;
 
+	public static boolean printStackTrace = true;
+
 	public static synchronized int getIndex() {
 		return index++;
 	}
@@ -127,7 +129,9 @@ public class log {
 
 	public static void p() {
 		Log.e(tag, "printStackTrace:");
-		new Throwable().printStackTrace();
+		if (printStackTrace) {
+			new Throwable().printStackTrace();
+		}
 	}
 
 	public static void v(Object value) {
